@@ -1,43 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" id="light-theme" href="style1.css">
+  <link rel="stylesheet" id="dark-theme" href="style2.css" disabled>
     <title>My Personal Website</title>
-    <link href="./style1.css" type="text/css" rel="stylesheet">
 </head>
-<body>
+<body class="home">
 
   <div class="rectangle">
     <h1 class="header">Harry Liu</h1>
     <h2 class="subheader">Junior Computer Engineer at Texas A&M University</h2>
-    <img class="profile" src="selfpic.jpg" alt="profile">
   </div>
-
-  <p id="first_p">This is my personal website project to help showcase qualifications, service projects, and other things. 
-    Input 300 words here with your imagination.</p>
 
   <div class="wrapper">
     <div class="timeline-area">
       <div class="line-area"></div>
 
       <div class="single-item active">
-        <span>Landing</span>
-        <div class="img-area">
-
-          <a href="index.html">
-            <img src="image.png" alt="random">
-            <span>Landing</span>
-          </a>
-        </div>
-      </div>
-
-      <div class="single-item active">
-        <span>Qualifications</span>
+        <span>Qualification</span>
         <div class="img-area">
 
           <a href="qualification.html">
-            <img src="image.png" alt="random">
-            <span>Qualifications</span>
+            <img src="qualification.png" alt="random">
+            <span>Qualification</span>
           </a>
         </div>
       </div>
@@ -47,18 +36,18 @@
         <div class="img-area">
 
           <a href="technical.html">
-            <img src="image.png" alt="random">
+            <img src="technical.png" alt="random">
             <span>Technical</span>
           </a>
         </div>
       </div>
 
       <div class="single-item active">
-        <span>Serivce</span>
+        <span>Service</span>
         <div class="img-area">
 
           <a href="service.html">
-            <img src="image.png" alt="random">
+            <img src="service.png" alt="random">
             <span>Service</span>
           </a>
         </div>
@@ -69,7 +58,7 @@
         <div class="img-area">
 
           <a href="AI.html">
-            <img src="image.png" alt="random">
+            <img src="AI.png" alt="random">
             <span>AI</span>
           </a>
         </div>
@@ -88,6 +77,34 @@
       });
     });
   </script>
+  <script>
+    function toggleCSS() {
+      const lightTheme = document.getElementById('light-theme');
+      const darkTheme = document.getElementById('dark-theme');
+      if (darkTheme.disabled) {
+        lightTheme.disabled = true;
+        darkTheme.disabled = false;
+        localStorage.setItem('theme', 'dark');
+      } else {
+        lightTheme.disabled = false;
+        darkTheme.disabled = true;
+        localStorage.setItem('theme', 'light');
+      }
+    }
+    window.onload = function() {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
+        document.getElementById('light-theme').disabled = true;
+        document.getElementById('dark-theme').disabled = false;
+      } else {
+        document.getElementById('light-theme').disabled = false;
+        document.getElementById('dark-theme').disabled = true;
+      }
+    };
+    document.getElementById('theme-toggle').addEventListener('click', toggleCSS);
+  </script>
+
+  
 
 </body>
 </html>

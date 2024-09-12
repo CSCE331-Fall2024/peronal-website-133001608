@@ -1,86 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>My Personal Website</title>
-    <link href="./style1.css" type="text/css" rel="stylesheet">
-</head>
-<body>
-
-  <div class="rectangle">
-    <h1 class="header">Service</h1>
-    <h2 class="subheader"></h2>
-  </div>
-
-  <div class="wrapper">
-    <div class="timeline-area">
-      <div class="line-area"></div>
-
-      <div class="single-item active">
-        <span>Landing</span>
-        <div class="img-area">
-
-          <a href="index.html">
-            <img src="image.png" alt="random">
-            <span>Landing</span>
-          </a>
-        </div>
-      </div>
-
-      <div class="single-item active">
-        <span>Qualifications</span>
-        <div class="img-area">
-
-          <a href="qualification.html">
-            <img src="image.png" alt="random">
-            <span>Qualifications</span>
-          </a>
-        </div>
-      </div>
-
-      <div class="single-item active">
-        <span>Technical</span>
-        <div class="img-area">
-
-          <a href="technical.html">
-            <img src="image.png" alt="random">
-            <span>Technical</span>
-          </a>
-        </div>
-      </div>
-
-      <div class="single-item active">
-        <span>Serivce</span>
-        <div class="img-area">
-
-          <a href="service.html">
-            <img src="image.png" alt="random">
-            <span>Service</span>
-          </a>
-        </div>
-      </div>
-
-      <div class="single-item active">
-        <span>AI</span>
-        <div class="img-area">
-
-          <a href="AI.html">
-            <img src="image.png" alt="random">
-            <span>AI</span>
-          </a>
-        </div>
-      </div>
-
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" id="light-theme" href="style1.css">
+    <link rel="stylesheet" id="dark-theme" href="style2.css" disabled>
+  </head>  
+  <body class="qual">
+    <header class="navbar">
+      <div class="navbar-left">
+      <img class="logo" src="logo.png" alt="logo">
+      <div class="navbar-title">Service</div>
     </div>
-  </div>
+      <nav>
+        <ul class="nav__links">
+          <li><a href="index.html"> Home</a></li>
+          <li><a href="qualification.html"> Qualification</a></li>
+          <li><a href="technical.html"> Technical</a></li>
+          <li><a href="AI.html"> AI</a></li>
+        </ul>
+      </nav>
+      <a class="cta" href="#"><button id="theme-toggle">Toggle Theme</button></a>
+    </header>
 
-  <script>
-    document.querySelectorAll(".single-item").forEach(function(item) {
-      item.addEventListener("mouseenter", function() {
-        document.querySelectorAll(".single-item").forEach(function(el) {
-          el.classList.remove("active");
-        });
-        item.classList.add("active");
-      });
-    });
-  </script>
-</body>
+    <div class="column-container">
+      <div class="column">
+        <div class="light-content-box">
+          <h2>Python Instructor</h2>
+          <p class="tech-paragraph">
+            I assisted over 100+ students in python learning, ranging from classwork to outside tutoring sessions. I mentor students in python fundamentals to real world applications. 
+          </p>
+          <a href="https://pt.tamu.edu/RegistrationForm.aspx">Sign-Up</a>
+          <img class="techimg" src="python.jpg" alt="python">
+        </div>
+      </div>
+      <div class="column">
+        <div class="light-content-box">
+          <h2>FPGA Tutor</h2>
+          <p class="tech-paragraph">I'm a lab technician for eletrical engineering courses and I offer education on Verilog implementation on Xilinx FPGA boards. I teach over dozens of students ranging from 200 to 400 level classes on Verilog syntax and optmized synthesis operations.
+          </p>
+          <a href="https://engineering.tamu.edu/biomedical/research/facilities/ilab-instructions-for-students.html">Lab-Sign In</a>
+          <img class="techimg" src="xilinx.jpg" alt="xilinx">
+        </div>
+      </div>
+      <div class="column">
+        <div class="light-content-box">
+          <h2>Big Event</h2>
+          <p class="tech-paragraph">I plan to do Big Event this semester where I am assigned to assist a random community member of College Station or Brian. My service will be a selected community service action whether it be cleaning the roads or re-organizing someone's property.
+          </p>
+          <a href="https://bigeventonline.tamu.edu/signup">Sign-Up</a>
+          <img class="techimg" src="bigevent.png" alt="bigevent">
+        </div>
+      </div>
+    </div>
+  
+    <script>
+      function toggleCSS() {
+        const lightTheme = document.getElementById('light-theme');
+        const darkTheme = document.getElementById('dark-theme');
+        if (darkTheme.disabled) {
+          lightTheme.disabled = true;
+          darkTheme.disabled = false;
+          localStorage.setItem('theme', 'dark');
+        } else {
+          lightTheme.disabled = false;
+          darkTheme.disabled = true;
+          localStorage.setItem('theme', 'light');
+        }
+      }
+      window.onload = function() {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+          document.getElementById('light-theme').disabled = true;
+          document.getElementById('dark-theme').disabled = false;
+        } else {
+          document.getElementById('light-theme').disabled = false;
+          document.getElementById('dark-theme').disabled = true;
+        }
+      };
+      document.getElementById('theme-toggle').addEventListener('click', toggleCSS);
+    </script>
+  </body>
+</html>

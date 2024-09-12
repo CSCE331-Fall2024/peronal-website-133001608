@@ -1,85 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>My Personal Website</title>
-    <link href="./style1.css" type="text/css" rel="stylesheet">
-</head>
-<body>
-
-  <div class="rectangle">
-    <h1 class="header">Technical</h1>
-    <h2 class="subheader"></h2>
-  </div>
-  <div class="wrapper">
-    <div class="timeline-area">
-      <div class="line-area"></div>
-
-      <div class="single-item active">
-        <span>Landing</span>
-        <div class="img-area">
-
-          <a href="index.html">
-            <img src="image.png" alt="random">
-            <span>Landing</span>
-          </a>
-        </div>
-      </div>
-      
-      <div class="single-item active">
-        <span>Qualifications</span>
-        <div class="img-area">
-
-          <a href="qualification.html">
-            <img src="image.png" alt="random">
-            <span>Qualifications</span>
-          </a>
-        </div>
-      </div>
-
-      <div class="single-item active">
-        <span>Technical</span>
-        <div class="img-area">
-
-          <a href="technical.html">
-            <img src="image.png" alt="random">
-            <span>Technical</span>
-          </a>
-        </div>
-      </div>
-
-      <div class="single-item active">
-        <span>Serivce</span>
-        <div class="img-area">
-
-          <a href="service.html">
-            <img src="image.png" alt="random">
-            <span>Service</span>
-          </a>
-        </div>
-      </div>
-
-      <div class="single-item active">
-        <span>AI</span>
-        <div class="img-area">
-
-          <a href="AI.html">
-            <img src="image.png" alt="random">
-            <span>AI</span>
-          </a>
-        </div>
-      </div>
-
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" id="light-theme" href="style1.css">
+    <link rel="stylesheet" id="dark-theme" href="style2.css" disabled>
+  </head>  
+  <body class="qual">
+    <header class="navbar">
+      <div class="navbar-left">
+      <img class="logo" src="logo.png" alt="logo">
+      <div class="navbar-title">Technical</div>
     </div>
-  </div>
+      <nav>
+        <ul class="nav__links">
+          <li><a href="index.html"> Home</a></li>
+          <li><a href="qualification.html"> Qualification</a></li>
+          <li><a href="service.html"> Service</a></li>
+          <li><a href="AI.html"> AI</a></li>
+        </ul>
+      </nav>
+      <a class="cta" href="#"><button id="theme-toggle">Toggle Theme</button></a>
+    </header>
 
-  <script>
-    document.querySelectorAll(".single-item").forEach(function(item) {
-      item.addEventListener("mouseenter", function() {
-        document.querySelectorAll(".single-item").forEach(function(el) {
-          el.classList.remove("active");
-        });
-        item.classList.add("active");
-      });
-    });
-  </script>
-</body>
+    <div class="column-container">
+      <div class="column">
+        <div class="light-content-box">
+          <h2>Aramco AI Internship</h2>
+          <p class="tech-paragraph">
+            My internship at Aramco allowed me to spearhead an innovative AI initiative by developing and finetuning a state of the art text classification model by using LayoutMv3. Through the integration of word-patch alignment and byte pair encoding, I could achieve a 92.7% accuracy across 13,000+ Atticus documents with 42 labels and a similar result with 1,000+ classified Aramco documents with 27 labels. This breakthrough significantly enhanced Aramco's document processing capabilities since the boom of AI advancement. I also designed a highly efficient preprocessing pipeline to deal with raw input files such as PNG and JSON which revolutionized future training for data management. My work in AI development in document classification into the company's contract advisor program will accelerate operational efficiency and set a new standard for Aramco's technological advancements in AI.   
+          </p>
+          <a href="https://www.aramco.com/en">Aramco</a>
+          <img class="techimg" src="layoutmv3.png" alt="layoutmv3">
+        </div>
+      </div>
+      <div class="column">
+        <div class="light-content-box">
+          <h2>FPGA Convolutional Neural Network</h2>
+          <p class="tech-paragraph">
+            This project focused on accelerating performances of convolutional neural networks (CNN) by leveraging altered architecture on the Xilinx FPGA boards through Verilog. The optimization of CNN layers and parallel processing of the FPGA allows for faster computational speed and achieving significant latency reduction while keeping the high accuracy. This design included various hardware modules for convolution, pooling and changing activation functions. The result was real time neural network performance with augmented inferencing in computing applications. This work proved that I could push the boundaries of FPGA based AI optimization for future foundations in AI and hardware linkage.
+          </p>
+          <a href="https://www.bittware.com/resources/cnn/">CNN Tutorial</a>
+          <img class="techimg" src="cnn.png" alt="cnn">
+        </div>
+      </div>
+      <div class="column">
+        <div class="light-content-box">
+          <h2>Red Rocket</h2>
+          <p class="tech-paragraph">
+            I was one of the lead avionics hardware engineers on the Red Rocket team where I led the development and simulations of the asynchronous stepper motor control system for the valve pressurization process. I used a Teensy 4.1 microcontroller with a Nema 23 Bipolar stepper motor to ensure seamless connection between the commands and the valve actuation. To ensure valve integrity I created a proportional integral derivative controller to safeguard the dynamical changes that could occur during operations. Furthermore, I engineered a 24V solenoid spring drivers and designed a buck converter from a TI datasheet in KiCAD. These were integral components that were added into the main PCB design for the rocket's functions. This work allowed for the efforts of everyone to build a reliable hardware platform that are required in aerospace applications and pushing the boundaries of avionic implementation.
+          </p>
+          <a href="https://www.tamured.space/">Red Rocket</a>
+          <img class="techimg" src="red_rocket.png" alt="redrocket">
+        </div>
+      </div>
+      <div class="column">
+        <div class="light-content-box">
+          <h2>VR Research SPLICE</h2>
+          <p class="tech-paragraph">
+            My undergraduate role as a VR researcher, I developed a python based program that enhanced the virtual reality experience by tracking player metadata such as pitch, yaw and roll for the head movements along with player trajectories on the axis plane in real time. My leveraging NumPy and other advanced algorithms, my contributions allowed for the mathematical predictive scheduling model to produce a 50% increased improvement in user experienced which are calculated through surveys regarding latency, smoothness and overall frame detection. These experiences were tested on various Unity game applications and this work pushed the idea of Wi-Fi latency being limited in VR environments. This will contribute towards making future VR experiences more fluid and immersive and set a standard for predictive scheduling algorithms.
+          </p>
+          <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1719384&HistoricalAwards=false">SPLICE</a>
+          <img class="techimg" src="SPLICE.jpg" alt="SPLICE">
+        </div>
+      </div>
+    </div>
+    <script>
+      function toggleCSS() {
+        const lightTheme = document.getElementById('light-theme');
+        const darkTheme = document.getElementById('dark-theme');
+        if (darkTheme.disabled) {
+          lightTheme.disabled = true;
+          darkTheme.disabled = false;
+          localStorage.setItem('theme', 'dark');
+        } else {
+          lightTheme.disabled = false;
+          darkTheme.disabled = true;
+          localStorage.setItem('theme', 'light');
+        }
+      }
+      window.onload = function() {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+          document.getElementById('light-theme').disabled = true;
+          document.getElementById('dark-theme').disabled = false;
+        } else {
+          document.getElementById('light-theme').disabled = false;
+          document.getElementById('dark-theme').disabled = true;
+        }
+      };
+      document.getElementById('theme-toggle').addEventListener('click', toggleCSS);
+    </script>
+  </body>
+</html>
