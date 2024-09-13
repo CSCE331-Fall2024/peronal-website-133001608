@@ -5,8 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" id="light-theme" href="style1.css">
-    <link rel="stylesheet" id="dark-theme" href="style2.css" disabled>
+    <link id="pagestyle" rel="stylesheet" href="style1.css">
   </head>  
   <body class="qual">
     <header class="navbar">
@@ -22,7 +21,7 @@
           <li><a href="AI.html"> AI</a></li>
         </ul>
       </nav>
-      <a class="cta" href="#"><button id="theme-toggle">Toggle Theme</button></a>
+      <a class="cta" href="#"><button id="theme-toggle" onclick="toggleTheme()">Toggle</button></a>
     </header>
 
     <div class="column-container">
@@ -68,30 +67,24 @@
       </div>
     </div>
     <script>
-      function toggleCSS() {
-        const lightTheme = document.getElementById('light-theme');
-        const darkTheme = document.getElementById('dark-theme');
-        if (darkTheme.disabled) {
-          lightTheme.disabled = true;
-          darkTheme.disabled = false;
-          localStorage.setItem('theme', 'dark');
+      function swapStyleSheet(sheet) {
+        localStorage.setItem('style', sheet);
+        document.getElementById('pagestyle').setAttribute('href', sheet);
+      }
+      function applyStyleSheet() {
+        const s = localStorage.getItem('style') || 'style1.css'; 
+        document.getElementById('pagestyle').setAttribute('href', s);
+      }
+      function toggleTheme() {
+        var theme = document.getElementById('pagestyle');
+        var currentTheme = theme.getAttribute('href');
+        if (currentTheme == 'style1.css') {
+          swapStyleSheet('style2.css');
         } else {
-          lightTheme.disabled = false;
-          darkTheme.disabled = true;
-          localStorage.setItem('theme', 'light');
+          swapStyleSheet('style1.css');
         }
       }
-      window.onload = function() {
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark') {
-          document.getElementById('light-theme').disabled = true;
-          document.getElementById('dark-theme').disabled = false;
-        } else {
-          document.getElementById('light-theme').disabled = false;
-          document.getElementById('dark-theme').disabled = true;
-        }
-      };
-      document.getElementById('theme-toggle').addEventListener('click', toggleCSS);
+      applyStyleSheet(); 
     </script>
   </body>
 </html>
